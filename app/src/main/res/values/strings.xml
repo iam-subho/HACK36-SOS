@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SOS</string>
+    <string name="whatsapp_suffix">SOS</string>
+    <string name="admin_receiver_status_disabled">Not Admin</string>
+    <string name="admin_receiver_status_enabled">Admin</string>
+    <string name="device_admin_not_enabled">Not device admin</string>
+</resources>

@@ -52,6 +52,11 @@
             android:exported="true"
             android:process=":externalProcessMyservice"/>
 
+        <service android:name=".ShakeServices.HiddenCamera"
+            android:enabled="true"
+            android:exported="true"
+            />
+
         <receiver
             android:name="subhojit.hack36.techforcrime.ScreenOffAdminReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN">

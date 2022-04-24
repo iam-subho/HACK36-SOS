@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "95939816240",
+    "firebase_url": "https://pussh-demo.firebaseio.com",
+    "project_id": "pussh-demo",
+    "storage_bucket": "pussh-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95939816240:android:285bec43dba2caff31f6f5",
+        "android_client_info": {
+          "package_name": "subhojit.hack36.techforcrime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95939816240-dqngakt2jjj6i0dc9enaj2ofvavjmuhl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBLSaS6h5XZEv3SfuPoi9Xv2JMk2z2-oM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95939816240-dqngakt2jjj6i0dc9enaj2ofvavjmuhl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,11 +1,15 @@
 package subhojit.hack36.techforcrime.ShakeServices;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Bundle;
 
-public class ShakeDetector implements SensorEventListener {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ShakeDetector extends AppCompatActivity implements SensorEventListener {
 
     /*
      * The gForce that is necessary to register as shake.
@@ -20,7 +24,20 @@ public class ShakeDetector implements SensorEventListener {
 
     private OnShakeListener mListener;
     private long mShakeTimestamp;
+
+
     private int mShakeCount;
+   /* @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        if (intent.hasExtra("mShakeCount")) {
+            mShakeCount = getIntent().getIntExtra("mShakeCount", 0);
+        } else {
+            mShakeCount=0;
+        }
+    }*/
+
 
     public void setOnShakeListener(OnShakeListener listener) {
         this.mListener = listener;
@@ -34,6 +51,7 @@ public class ShakeDetector implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // ignore
     }
+
 
     @Override
     public void onSensorChanged(SensorEvent event) {

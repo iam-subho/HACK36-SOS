@@ -11,6 +11,8 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -20,6 +22,7 @@ import android.os.PowerManager;
 import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -31,6 +34,8 @@ import subhojit.hack36.techforcrime.R;
 
 import subhojit.hack36.techforcrime.ShakeServices.ReactivateService;
 import subhojit.hack36.techforcrime.ShakeServices.SensorService;
+import subhojit.hack36.techforcrime.ShakeServices.ShakeDetector;
+
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.accessibilityservice.AccessibilityService;
@@ -39,10 +44,13 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int IGNORE_BATTERY_OPTIMIZATION_REQUEST = 1002;
+    public static SharedPreferences sharedpreferences;
+
 
     //create instances of various classes to be used
     Button button1,button1wa,buttonClick;
@@ -81,11 +89,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
         if (!isAccessibilityOn(this, MyAccessibilityService.class)) {
             Intent intentwa = new Intent (Settings.ACTION_ACCESSIBILITY_SETTINGS);
             this.startActivity (intentwa);
         }
 
+        Intent service = new Intent(getApplicationContext(), MyService.class);
+        startService(service);
+        //Toast.makeText(this, "Volume !", Toast.LENGTH_SHORT).show();
 
         button1 = findViewById(R.id.Button1);
         button1wa = findViewById(R.id.Button1wa);
@@ -120,7 +132,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
+
 
     private boolean isAccessibilityOn(MainActivity mainActivity, Class<MyAccessibilityService> myAccessibilityServiceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -180,9 +195,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void CheckWA() throws InterruptedException, UnsupportedEncodingException {
-        Intent intent = new Intent(this, ScreenOffActivity.class);
+        //location();
+        /*Intent intent = new Intent(this, ScreenOffActivity.class);
         startActivity(intent);
-        String number ="+917548083568";
+        String number ="+917001667213";
         String message= "I am in DANGER, i need help. Please urgently reach me out.\n"+"GPS was turned off.Couldn't find location. Call your nearest Police Station. SOS";
         String url="https://api.whatsapp.com/send?phone="+number+"&text="+ URLEncoder.encode(message,"UTF-8");
         Intent whatsappintent = new Intent(Intent.ACTION_VIEW);
@@ -190,9 +206,33 @@ public class MainActivity extends AppCompatActivity {
         whatsappintent.setPackage("com.whatsapp");
         whatsappintent.setData(Uri.parse(url));
         whatsappintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        getApplicationContext().startActivity(whatsappintent);
-        Thread.sleep(5000);
+       // getApplicationContext().startActivity(whatsappintent);
+        Thread.sleep(2000);
+        Intent intent = new Intent(this, SosActivityClass.class);
+        startActivity(intent);*/
+        Intent service = new Intent(getApplicationContext(), MyServiceButtonClick.class);
+        startService(service);
 
+    }
+
+    public void CheckWAm(){
+        int count=3;
+
+        Intent intent = new Intent(this, ShakeDetector.class);
+        intent.putExtra("mShakeCount",3);
+        startActivity(intent);
+
+
+    }
+
+    public void location(){
+        new GpsUtils(this).turnGPSOn(new GpsUtils.onGpsListener() {
+            @Override
+            public void gpsStatus(boolean isGPSEnable) {
+                // turn on GPS
+                boolean isGPS = isGPSEnable;
+            }
+        });
     }
 
     }

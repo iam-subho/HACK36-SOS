@@ -35,6 +35,7 @@ import com.google.android.gms.tasks.OnTokenCanceledListener;
 import subhojit.hack36.techforcrime.AccessibilityServiceManager;
 import subhojit.hack36.techforcrime.Contacts.ContactModel;
 import subhojit.hack36.techforcrime.Contacts.DbHelper;
+import subhojit.hack36.techforcrime.GpsUtils;
 import subhojit.hack36.techforcrime.MyAccessibilityService;
 import subhojit.hack36.techforcrime.R;
 import subhojit.hack36.techforcrime.ScreenOffActivity;
@@ -49,6 +50,8 @@ public class SensorService extends Service {
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
+    private int mVolumeCount1=0;
+    //int count;
 
     public SensorService(){
     }
@@ -89,7 +92,7 @@ public class SensorService extends Service {
                 if(count==3) {
                   //vibrate the phone
                     vibrate();
-                    lockscreen();
+                    location();
 
                     //create FusedLocationProviderClient to get the user location
                     FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(getApplicationContext());
@@ -153,6 +156,7 @@ public class SensorService extends Service {
                                     }
                                 }
                             }
+                            mVolumeCount1=1;
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -175,8 +179,13 @@ public class SensorService extends Service {
                                     interruptedException.printStackTrace();
                                 }
                             }
+                            mVolumeCount1=1;
                         }
                     });
+                    if(mVolumeCount1==1){
+                        mVolumeCount1=0;
+                        changeActivity();
+                    }
 
                 }
 
@@ -201,9 +210,20 @@ public class SensorService extends Service {
         }
     }
 
-    public void lockscreen(){
+    public void changeActivity(){
         Intent intent = new Intent(this, ScreenOffActivity.class);
-        startActivity(intent);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        getApplicationContext().startActivity(intent);
+    }
+
+    public void location(){
+        new GpsUtils(this).turnGPSOn(new GpsUtils.onGpsListener() {
+            @Override
+            public void gpsStatus(boolean isGPSEnable) {
+                // turn on GPS
+                boolean isGPS = isGPSEnable;
+            }
+        });
     }
 
      public void sendwhatsapp(String message,String MobileNumber) throws UnsupportedEncodingException, InterruptedException {

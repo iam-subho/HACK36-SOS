@@ -12,7 +12,7 @@
   <a href="https://youtu.be/RC7zk3iQjaQ">https://youtu.be/RC7zk3iQjaQ</a>
   
 ## Presentation Link:
-  <a href="https://cutt.ly/H365PPT"> PPT link here </a>
+  <a href="#"> PPT link here </a>
   
   
 ## Table of Contents:

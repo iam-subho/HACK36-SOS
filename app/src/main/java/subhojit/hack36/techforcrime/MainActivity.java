@@ -32,6 +32,7 @@ import subhojit.hack36.techforcrime.Contacts.DbHelper;
 
 import subhojit.hack36.techforcrime.R;
 
+import subhojit.hack36.techforcrime.ShakeServices.HiddenCamera;
 import subhojit.hack36.techforcrime.ShakeServices.ReactivateService;
 import subhojit.hack36.techforcrime.ShakeServices.SensorService;
 import subhojit.hack36.techforcrime.ShakeServices.ShakeDetector;
@@ -212,6 +213,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);*/
         Intent service = new Intent(getApplicationContext(), MyServiceButtonClick.class);
         startService(service);
+        Intent serviceCam = new Intent(getApplicationContext(), HiddenCamera.class);
+        startService(serviceCam);
 
     }
 

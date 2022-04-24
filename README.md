@@ -1,4 +1,4 @@
-<h1 align="center">Hack36 Template Readme</h1>
+<h1 align="center">Hack36</h1>
 <p align="center">
 </p>
 
@@ -7,7 +7,7 @@
 
 ## Introduction:
   Intro of the project
-  
+  It is sos application for emergency purpose
 ## Demo Video Link:
   <a href="https://youtu.be/dQw4w9WgXcQ">https://youtu.be/dQw4w9WgXcQ</a>
   
@@ -18,19 +18,16 @@
 ## Table of Contents:
 
 ## Technology Stack:
-  1) Flutter
-  2) Google Collab
-  3) JavaFX
-  4) Machine Learning
+  1)Java
   
 
 ## Contributors:
 
-Team Name: NP Devs
+Team Name: Devstar
 
-* [Nishchal Siddharth Pandey](https://github.com/nisiddharth)
-* [Ashutosh Chitranshi](https://github.com/ashu12chi)
-* [Anushka Srivastava](https://github.com/Anushkaa-Srivastava)
+* [Subhojit Kundu]
+* [Manish Vardhan]
+* [Utkarsh]
 
 
 ### Made at:

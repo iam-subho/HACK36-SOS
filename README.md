@@ -6,8 +6,8 @@
 
 
 ## Introduction:
-  Intro of the project
-  It is sos application for emergency purpose
+    It is sos application for emergency purpose
+    
 ## Demo Video Link:
   <a href="https://youtu.be/dQw4w9WgXcQ">https://youtu.be/dQw4w9WgXcQ</a>
   

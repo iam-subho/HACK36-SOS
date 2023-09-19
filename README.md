@@ -32,3 +32,9 @@ Team Name: Devstar
 
 ### Made at:
 <a href="https://hack36.com"> <img src="https://cutt.ly/BuiltAtHack36" height=24px> </a>
+
+# License
+This project is licensed under **Apache License 2.0**, see the
+[LICENSE](LICENSE) file for more details.
+
+This project is tested with BrowserStack.
